@@ -64,3 +64,17 @@
   border-radius: 4px;
   padding: 8px 16px;
 }
+
+.load-more {
+  display: block;
+  margin: 24px auto;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
