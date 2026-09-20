@@ -9,7 +9,6 @@ import {
   hideLoader,
   showLoadMoreButton,
   hideLoadMoreButton,
-  scroll,
 } from './js/render-functions.js';
 
 const form = document.querySelector('.form');
@@ -19,6 +18,18 @@ const loadMoreBtn = document.querySelector('.load-more');
 let currentQuery = '';
 let currentPage = 1;
 let totalHits = 0;
+
+function scroll() {
+  const galleryItem = document.querySelector('.gallery-item');
+
+  const { height: cardHeight } = galleryItem.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    left: 0,
+    behavior: 'smooth',
+  });
+}
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
@@ -107,6 +118,12 @@ loadMoreBtn.addEventListener('click', async () => {
     }
   } catch (error) {
     console.log(error);
+    iziToast.show({
+      message: 'Something went wrong. Please try again later.',
+      position: 'topRight',
+      backgroundColor: 'red',
+      messageColor: 'white',
+    });
   } finally {
     hideLoader();
   }

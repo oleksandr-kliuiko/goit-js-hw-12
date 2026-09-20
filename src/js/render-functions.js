@@ -74,15 +74,3 @@ export function showLoadMoreButton() {
 export function hideLoadMoreButton() {
   loadMoreBtn.classList.add('is-hidden');
 }
-
-export function scroll() {
-  const { height: cardHeight } = document
-    .querySelector('.gallery-item')
-    .getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 2,
-    left: 0,
-    behavior: 'smooth',
-  });
-}
